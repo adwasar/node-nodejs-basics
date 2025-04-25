@@ -6,8 +6,7 @@ const create = async () => {
   const msg = 'I am fresh and young'
 
   if (fs.existsSync(filePath)) {
-    console.error('FS operation failed')
-    return
+    throw new Error('FS operation failed')
   }
   
   fs.writeFile('./src/fs/files/fresh.txt', msg, (err) => {
@@ -20,4 +19,3 @@ const create = async () => {
 }
 
 await create()
-
